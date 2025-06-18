@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package ecommerce_v1;
+
+import "mathworks/my_protos_1/v1/user.proto";
+import "mathworks/my_protos_2/v1/product.proto";
+import "google/api/annotations.proto";
+
+// option go_package = "github.com/Shushant2502/my_protos_3/gen/v1";
+option go_package = "gen/go/mathworks/my_protos_3/v1";
+
+message Order {
+  string id = 1;
+  ecommerce_v1.User user = 2;
+  repeated ecommerce_v1.Product products = 3;
+  double total_price = 4;
+}
+
+service OrderService {
+  rpc GetOrder(GetOrderRequest) returns (Order) {
+    option (google.api.http) = {
+      get: "/v1/orders/{id}"
+    };
+  }
+}
+
+message GetOrderRequest {
+  string id = 1;
+}
