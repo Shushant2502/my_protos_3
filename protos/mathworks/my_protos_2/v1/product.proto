@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package my_protos_2.v1;
+
+import "google/api/annotations.proto";
+
+// option go_package = "github.com/Shushant2502/my_protos_2/gen/v1";
+option go_package = "my_protos_2/v1";
+
+message Product {
+  string id = 1;
+  string name = 2;
+  double price = 3;
+}
+
+service ProductService {
+  rpc GetProduct(GetProductRequest) returns (Product) {
+    option (google.api.http) = {
+      get: "/v1/products/{id}"
+    };
+  }
+}
+
+message GetProductRequest {
+  string id = 1;
+}
