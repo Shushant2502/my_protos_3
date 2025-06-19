@@ -1,26 +1,28 @@
 syntax = "proto3";
 
-package my_protos_2.v1;
+package licensing.v1;
 
+import "mathworks/environment/v1/environment.proto";
 import "google/api/annotations.proto";
 
 // option go_package = "github.com/Shushant2502/my_protos_2/gen/v1";
-option go_package = "my_protos_2/v1";
+option go_package = "licensing/v1";
 
-message Product {
+message LicensingInfo {
   string id = 1;
   string name = 2;
   double price = 3;
 }
 
 service ProductService {
-  rpc GetProduct(GetProductRequest) returns (Product) {
+  rpc GetProduct(LicensingRequest) returns (LicensingInfo) {
     option (google.api.http) = {
       get: "/v1/products/{id}"
     };
   }
 }
 
-message GetProductRequest {
+message LicensingRequest {
   string id = 1;
+  environment.v1.Environment environment = 2;
 }

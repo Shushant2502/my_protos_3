@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package session.v1;
+
+import "mathworks/environment/v1/environment.proto";
+import "mathworks/licensing/v1/licensing.proto";
+import "google/api/annotations.proto";
+
+// option go_package = "github.com/Shushant2502/my_protos_3/gen/v1";
+option go_package = "session/v1";
+
+message StartSessionRequest {
+  string id = 1;
+  environment.v1.Environment environment = 2;
+  licensing.v1.LicensingInfo licensing_info = 3;
+}
+
+service OrderService {
+  rpc GetOrder(StartSessionRequest) returns (StartSessionResponse) {
+    option (google.api.http) = {
+      get: "/v1/session/{id}"
+    };
+  }
+}
+
+message StartSessionResponse {
+  string id = 1;
+}
