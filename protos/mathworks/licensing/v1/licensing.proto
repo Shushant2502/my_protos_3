@@ -6,7 +6,7 @@ import "mathworks/environment/v1/environment.proto";
 import "google/api/annotations.proto";
 
 // option go_package = "github.com/Shushant2502/my_protos_2/gen/v1";
-option go_package = "licensing/v1";
+option go_package = "mathworks/licensing/v1";
 
 message LicensingInfo {
   string id = 1;

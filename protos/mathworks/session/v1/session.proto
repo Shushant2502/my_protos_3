@@ -7,7 +7,7 @@ import "mathworks/licensing/v1/licensing.proto";
 import "google/api/annotations.proto";
 
 // option go_package = "github.com/Shushant2502/my_protos_3/gen/v1";
-option go_package = "session/v1";
+option go_package = "mathworks/session/v1";
 
 message StartSessionRequest {
   string id = 1;

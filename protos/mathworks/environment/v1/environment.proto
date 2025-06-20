@@ -5,7 +5,7 @@ package environment.v1;
 import "google/api/annotations.proto";
 
 // option go_package = "github.com/Shushant2502/my_protos_1/gen/v1";
-option go_package = "environment/v1";
+option go_package = "mathworks/environment/v1";
 
 message Environment {
   string id = 1;
